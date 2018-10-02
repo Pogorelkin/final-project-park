@@ -95,6 +95,31 @@
 
            </c:if>
 
+                     <c:if test="${currentUserRole == '1'}">
+          <div class="content">
+            <form action="<c:url value="/requests/confirm"/>" method="post">
+                <table border="1">
+                     <caption><p>Check completed job</p></caption>
+                     <tr>
+                        <th>
+                          Id of completed job
+                        </th>
+                     </tr>
+
+                      <tr>
+                      <td>
+                         <label><input type="number" name="id"></label>
+                      </td>
+                      <td><button type="submit">Confirm</button></td>
+                      </tr>
+                </table>
+            </form>
+          </div>
+
+          
+
+           </c:if>
+
 
 
 
