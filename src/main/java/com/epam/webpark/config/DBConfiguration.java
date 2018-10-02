@@ -51,4 +51,5 @@ public class DBConfiguration {
         jdbcTemplate.setResultsMapCaseInsensitive(true);
         return jdbcTemplate;
     }
+
 }

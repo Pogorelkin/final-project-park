@@ -5,6 +5,8 @@ import com.epam.webpark.dao.UserRep;
 import com.epam.webpark.dao.mappers.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -16,11 +18,22 @@ public class UserDAOImpl implements UserRep {
 @Autowired
 private JdbcTemplate jdbcTemplate;
 
+@Autowired
+private UserMapper userMapper;
+
+
+
+    public UserDAOImpl() {
+    }
+
 
 
     @Override
     public User findByLogin(String login) {
-        return jdbcTemplate.queryForObject("SELECT * FROM Accounts WHERE login = ?", new Object[]{login}, new UserMapper());
+
+            return jdbcTemplate.queryForObject("SELECT * FROM Accounts WHERE login =?", new Object[]{login}, new UserMapper());
+
+      //  return jdbcTemplate.queryForObject("SELECT * FROM Accounts WHERE login = ?", new Object[]{login}, new UserMapper());
     }
 
     @Override

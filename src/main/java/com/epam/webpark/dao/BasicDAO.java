@@ -4,6 +4,8 @@ import java.util.List;
 
 
 public interface BasicDAO<T> {
+
+
     List<T> findAll();
 
     T findById(long id);
