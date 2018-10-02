@@ -14,17 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
-
-
-
-import static com.epam.webpark.utils.Messages.ERROR;
-import static com.epam.webpark.utils.Messages.SUCCESS;
-
 @Controller
 public class RequestController {
 
     @Autowired
-    private UserManagerImpl userManager;//UserManager userManager;
+    private UserManagerImpl userManager;
 
     @Autowired
     private RequestServiceImpl requestService;
@@ -43,14 +37,17 @@ public class RequestController {
     }
 
     @PostMapping("/requests/add")
-    public ModelAndView makeRequest() {
+    public ModelAndView makeRequest(@ModelAttribute(value = "id") long id,
+                                    @ModelAttribute(value = "workKind") String workKind,
+                                    @ModelAttribute(value = "status") String status,
+                                    @ModelAttribute(value = "id_owner") long id_owner,
+                                    @ModelAttribute(value = "id_forester") long id_forester,
+                                    @ModelAttribute(value = "id_tree") long id_tree
+
+    ) {
         ModelAndView modelAndView = new ModelAndView();
-        List<Request> requests = this.requestService.getAll();
-        modelAndView.addObject("requests", requests);
-
-        modelAndView.setViewName("redirect:/requests/add");
-
-
+        modelAndView.setViewName("redirect:/requests/");
+        this.requestService.add(new Request(workKind, status, id_owner, id_forester, id_tree));
         return modelAndView;
     }
 

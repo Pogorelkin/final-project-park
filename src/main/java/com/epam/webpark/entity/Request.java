@@ -6,14 +6,14 @@ import java.io.Serializable;
 
 public class Request implements Serializable {
 
-    private int id;
+    private long id;
     private String workKind;
     private String status;
-    private int id_owner;
-    private int id_forester;
-    private int id_tree;
+    private long id_owner;
+    private long id_forester;
+    private long id_tree;
 
-    public Request(String workKind, String status, int id_owner, int id_forester, int id_tree) {
+    public Request(String workKind, String status, long id_owner, long id_forester, long id_tree) {
         this.workKind = workKind;
         status = status;
         this.id_owner = id_owner;
@@ -21,11 +21,11 @@ public class Request implements Serializable {
         this.id_tree = id_tree;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -45,27 +45,27 @@ public class Request implements Serializable {
         status = status;
     }
 
-    public int getId_owner() {
+    public long getId_owner() {
         return id_owner;
     }
 
-    public void setId_owner(int id_owner) {
+    public void setId_owner(long id_owner) {
         this.id_owner = id_owner;
     }
 
-    public int getId_forester() {
+    public long getId_forester() {
         return id_forester;
     }
 
-    public void setId_forester(int id_forester) {
+    public void setId_forester(long id_forester) {
         this.id_forester = id_forester;
     }
 
-    public int getId_tree() {
+    public long getId_tree() {
         return id_tree;
     }
 
-    public void setId_tree(int id_tree) {
+    public void setId_tree(long id_tree) {
         this.id_tree = id_tree;
     }
 

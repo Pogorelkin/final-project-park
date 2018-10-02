@@ -12,8 +12,8 @@ public class ForestMapper implements RowMapper<Tree> {
         Tree tree = new Tree(
                 resultSet.getString("treeKind"),
                 resultSet.getString("color"),
-                resultSet.getInt("status"));
-        tree.setId(resultSet.getInt("id"));
+                resultSet.getLong("status"));
+        tree.setId(resultSet.getLong("id"));
         return tree;
 
     }

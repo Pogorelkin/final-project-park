@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class Tree implements Serializable {
 
-    private int id;
+    private long id;
     private String treeKind;
     private String color = "default";
-    private int status = 1; // 0=sick, 1=healthy;
+    private long status = 1; // 0=sick, 1=healthy, -1 = dead;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -25,7 +25,7 @@ public class Tree implements Serializable {
         this.treeKind = treeKind;
     }
 
-    public Tree(String treeKind, String color, int status) {
+    public Tree(String treeKind, String color, long status) {
         this.treeKind = treeKind;
         this.color = color;
         this.status = status;
@@ -39,11 +39,11 @@ public class Tree implements Serializable {
         this.color = color;
     }
 
-    public int isHealthy() {
+    public long isHealthy() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(long status) {
         this.status = status;
     }
 

@@ -44,4 +44,9 @@ public class ForestServiceImpl implements ForestService {
     public Tree findById(Long idObj) {
         return this.forestDAO.findById(idObj);
     }
+
+    @Override
+    public void paintTree(long id, String color) {
+        forestDAO.paintTree(id, color);
+    }
 }

@@ -27,18 +27,25 @@ public class ForestImpl implements ForestRep {
 
     @Override
     public long add(Tree entity) {
-        return jdbcTemplate.update("INSERT INTO Accounts(tree_kind, color, status) VALUES (?,?,?)",
+        return jdbcTemplate.update("INSERT INTO Forest(tree_kind, color, status) VALUES (?,?,?)",
                 entity.getColor(), entity.getTreeKind(), entity.isHealthy());
     }
 
     @Override
     public long update(long id, Tree entity) {
-        return jdbcTemplate.update("UPDATE Accounts SET tree_kind = ?, color = ?, status = ? WHERE id = ?",
+        return jdbcTemplate.update("UPDATE Forest SET tree_kind = ?, color = ?, status = ? WHERE id = ?",
                 entity.getTreeKind(), entity.getColor(), entity.isHealthy(), id);
     }
 
     @Override
     public long deleteById(long id) {
         return jdbcTemplate.update("DELETE FROM Forest WHERE id = ?", id);
+    }
+
+    @Override
+    public void paintTree(long id, String color) {
+        jdbcTemplate.update("UPDATE Forest SET color = ?, WHERE id = ?", color, id);
+
+
     }
 }
